@@ -4,6 +4,18 @@
 
 
 
+### Full Vehicle Trajectory Planning Model for Urban Traffic Control Based on Imitation Learning
+
+**Remark1**: the lateral maneuver of lane changing should be coupled with longitudinal speed in the planning process to generate more realistic vehicle trajectories;
+
+**Remark2**: human driving behaviors are natural baselines for CAVs;
+
+**Remark3**: human-like CAV trajectories are less disruptive in the mixed traffic condition with HDVs;
+
+
+
+
+
 ## Multi-Agent Reinforcement Learning
 
 ### Single-Agent RL
