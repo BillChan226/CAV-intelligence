@@ -2,6 +2,17 @@
 
 ### Probabilistic Prediction of Interactive Driving Behavior via Hierarchical Inverse Reinforcement Learning
 
+**Scenario**: ramp-merging scenario
+
+![Definition-of-variables-for-the-highway-on-ramp-merge-scenario](https://raw.githubusercontent.com/BillChan226/Notebook/main/image/Definition-of-variables-for-the-highway-on-ramp-merge-scenario.png)
+
++ **Deterministic Prediction**
++ **Probabilistic Prediction**
+
+Human’s planning procedure is naturally **hierarchical**, involving both discrete and continuous driving decisions. The discrete driving decisions determine the gametheoretic outcomes of interaction such as to yield or to pass, whereas the continuous driving decisions inﬂuence details of the resulting trajectories in terms of smoothness, distances to other road participants and higher-order dynamics such as velocities, accelerations and jerks.
+
+
+
 
 
 ### Full Vehicle Trajectory Planning Model for Urban Traffic Control Based on Imitation Learning
@@ -11,8 +22,6 @@
 **Remark2**: human driving behaviors are natural baselines for CAVs;
 
 **Remark3**: human-like CAV trajectories are less disruptive in the mixed traffic condition with HDVs;
-
-
 
 
 
