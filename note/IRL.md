@@ -13,6 +13,54 @@ Human’s planning procedure is naturally **hierarchical**, involving both discr
 
 
 
+### Driving Behavior Modeling Using Naturalistic Human Driving Data With Inverse Reinforcement Learning
+
+2 important integral facets in AV driving policy:
+
++ **Human-like**: AVs and human drivers share the road in the near future, which requires AVs to act like humans, thus being predictable and interpretable to other human drivers;
++ **Personalized**: AVs should make decisions according to the user’s personal preferences
+
+**Prior assumption** to use IRL: rational drivers choose actions that optimize their internal reward functions
+
+**Assumption 2**: a human driver follows a stochastic policy, which induces a distribution over generated candidate trajectories, and we assume the distribution is a **Boltzmann distribution** (exponential distribution) related to the returns of trajectories.
+
+The probability of a trajectory is proportional to the exponential of the reward of that trajectory:
+$$
+P(\zeta|\theta)=\frac{e^{R(\zeta)}}{Z(\theta)}=\frac{e^{\theta^Tf_\zeta}}{Z(\theta)}
+$$
+However, partition function $Z(\theta)$ requires integrating over the entire class of possible trajectories!!
+
+**Measure**: discretize the trajectory space, and reduce the original space of possible trajectories to small sub-spaces.
+
+thus:
+$$
+P(\zeta|\theta)=\frac{e^{\theta^Tf_\zeta}}{Z(\theta)}\approx\frac{e^{\theta^Tf_\zeta}}{\sum_{i=1}^Me^{\theta^Tf_\zeta i}}
+$$
+Goal of Maximum entropy IRL:
+$$
+\max_\theta J(\theta)=\max_\theta\sum_{\zeta\in D}logP(\zeta|\theta)
+$$
+
+
+#### Related works:
+
+**Driving Behavior Modeling**
+
++ **Intention estimation**: identify what a driver intends to do in the immediate future
+  + Parametric model:
+    + **IDM**: intelligent driver model
+    + **MOBIL**: minimizing overall braking induced by lane changes
+  + Data-driven model:
+    + Hiden Markov model
++ **Motion prediction**: predicts the future physical states of a vehicle
+  + Parametric model: parametric models generally postulate some structure about the problem, and thereby they are high interpretable and computationally efﬁcient. However, the parametric models are not very expressive to reﬂect complex dynamics and the parameters are hard to specify;
+  + Data-driven model: data-driven models enjoy a strong performance but lack interpretability and generalization, which limits their application to safety-critical problems;
++ **Pattern analysis**: extract features or patterns from human driving data that can help us understand the traits of driving behaviors
+
+
+
+
+
 
 
 ### Full Vehicle Trajectory Planning Model for Urban Traffic Control Based on Imitation Learning
