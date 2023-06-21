@@ -120,9 +120,13 @@ However without such assumption, we can only take the reward structure and loss 
 $$
 \frac{\partial L_D}{\partial \theta}=\frac{\partial L_D}{\partial r}*\frac{\partial r}{\partial \theta}=(\mu_D - E[\mu])*\frac{\partial}{\partial \theta} g(f, \theta)
 $$
+$(\mu_D - E[\mu])$ refers to the difference in state visitation counts between solutions given by the expert demonstrations and the expected visitation counts for the learned trajectory distribution.
+$$
+E[\mu] = \sum_{\zeta:{s,a}\in \zeta} P(\zeta| r)
+$$
+![image-20230621143813796](https://raw.githubusercontent.com/BillChan226/Notebook/main/image/image-20230621143813796.png)
 
-
-
+This makes sense to me since for this product $(\mu_D - E[\mu])*\frac{\partial}{\partial \theta} g(f, \theta)$ : $\frac{\partial}{\partial \theta} g(f, \theta)$ gives us the direction to increase the reward for state feature $f$. Then if this state actually happens more often($\mu_D > E[\mu]$), then its reward(possibility) increases; otherwise, if this state actually happens less often($\mu_D < E[\mu]$), then its reward(possibility) decreases. This appears to me very likely to the derivation of update for policy approximator for actor-critic algorithms.
 
 
 
